@@ -1,0 +1,6 @@
+// this is a generated file - DO NOT EDIT
+
+COM_WIKITUDE_TI_OTHER_LDFLAGS_sdk_iphoneos__=$(inherited) -F$(SRCROOT)/../../modules/iphone/com.wikitude.ti/4.0.0/platform/iphone -F"$(TI_SDK_DIR)/../../../../modules/iphone/com.wikitude.ti/4.0.0/platform/iphone" -lc++ -lsqlite3 -lz -ObjC -framework Accelerate -framework AssetsLibrary -framework CoreMedia -framework CoreMotion -framework CoreVideo -framework Security -framework WikitudeSDK
+COM_WIKITUDE_TI_OTHER_LDFLAGS_sdk_iphonesimulator__=$(inherited) -F$(SRCROOT)/../../modules/iphone/com.wikitude.ti/4.0.0/platform/iphone -F"$(TI_SDK_DIR)/../../../../modules/iphone/com.wikitude.ti/4.0.0/platform/iphone" -lc++ -lsqlite3 -lz -ObjC -framework Accelerate -framework AssetsLibrary -framework CoreMedia -framework CoreMotion -framework CoreVideo -framework Security -framework iAd -framework WikitudeSDK
+OTHER_LDFLAGS[sdk=iphoneos*]=$(inherited) $(COM_WIKITUDE_TI_OTHER_LDFLAGS_sdk_iphoneos__) 
+OTHER_LDFLAGS[sdk=iphonesimulator*]=$(inherited) $(COM_WIKITUDE_TI_OTHER_LDFLAGS_sdk_iphonesimulator__) 
