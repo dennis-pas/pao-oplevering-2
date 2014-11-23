@@ -4,7 +4,7 @@
 
 function ProductImageViewerView(){
 
-
+	
 	var arr = [
 	{ID: 1, url:'http://apishop.planatoffice.nl/Data/Pictures/DetailImages/49-1.jpg'},
 	{ID: 2, url:'http://apishop.planatoffice.nl/Data/Pictures/DetailImages/49-2.jpg'},
@@ -37,7 +37,8 @@ function ProductImageViewerView(){
 
             var architectWindow = new ARchitectWindow(WikitudeLicenseKey, "IrAndGeo");
             if (architectWindow.isDeviceSupported()) {
-                architectWindow.loadArchitectWorldFromURL("html/index.html");
+                architectWindow.loadArchitectWorldFromURL("http://apishop.planatoffice.nl/ProductDimensional.aspx");
+                //architectWindow.loadArchitectWorldFromURL("http://www.apptinity.com/DRIEDVIEWTEST/index.html");
                 architectWindow.open();
             } else {
                 alert('not supported');
