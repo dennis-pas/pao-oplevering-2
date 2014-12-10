@@ -1,9 +1,10 @@
 {
-	"target": "simulator",
-	"deployType": "development",
+	"target": "device",
+	"deployType": "test",
 	"iosSdkVersion": "8.1",
 	"deviceFamily": "universal",
-	"iosSdkPath": "/Users/Sjoerd/Library/Application Support/Titanium/mobilesdk/osx/3.4.0.GA/iphone",
+	"developerName": "Dennis Kreukniet (NTE4E983NU)",
+	"iosSdkPath": "/Users/denniskreukniet/Library/Application Support/Titanium/mobilesdk/osx/3.4.0.GA/iphone",
 	"tiCoreHash": "77157e1ffaec640cf559356a147b6a4c",
 	"modulesHash": "83ca062f31020f26800ed21e95d18305",
 	"modulesNativeHash": "4b3741337d47669a9cf63cf2caee4c7a",
@@ -17,8 +18,8 @@
 	"description": "undefined",
 	"copyright": "2014 by sjoerdsprangers",
 	"guid": "d29e3568-39f9-45eb-9735-64ec72396cbb",
-	"skipJSMinification": true,
+	"skipJSMinification": false,
 	"forceCopy": false,
 	"forceCopyAll": false,
-	"encryptJS": false
+	"encryptJS": true
 }

@@ -1,1 +1,0 @@
-/Users/Sjoerd/Documents/Titanium_Studio_Workspace/pao-oplevering-2/Resources/ui/common/product/productDetail/3D/3DView.js
