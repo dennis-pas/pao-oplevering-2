@@ -21,7 +21,7 @@ function MenuBarView() {
 	 
 	
 	var questionEmpty = true;
-	var shoppingEmpty = false;
+	var shoppingEmpty = true;
 	
 	if (shoppingEmpty == true){
 		var shoppingcartimg = 'ui/common/img/shoppingcart_empty.png';
@@ -49,17 +49,17 @@ function MenuBarView() {
 	//create settings img
 	var settings = Ti.UI.createImageView({
 		backgroundImage: '/ui/common/img/singletandwiel.png',
-		width: 20,
-		height: 20,
+		width: 15,
+		height: 15,
 		left: '0%'
 	});
 	
 	//create shoppingcart img
-	var shoppingcart = Ti.UI.createLabel({
+	var shoppingcart = Ti.UI.createImageView({
 		backgroundImage: shoppingcartimg,
-		width: 20,
-		height: 20,
-		left: '33%'
+		width: 15,
+		height: 15,
+		right: '5%'
 	});
 	//create Label label
 	var label = Ti.UI.createLabel({
@@ -71,16 +71,19 @@ function MenuBarView() {
 	//create QuestionCart img
 	var questionCart = Ti.UI.createImageView({
 		backgroundImage: questioncartimg,
-		width: 20,
-		height: 20,
+		width: 15,
+		height: 15,
 		right: 0,
-		left: '66%'
+		right: '15%'
 	});
 	
+	var flexSpace = Titanium.UI.createButton({
+		systemButton:Titanium.UI.iPhone.SystemButton.FLEXABLE_SPACE
+	});
 	//create toolbar
 	//button bar top
 	var toolBar = Ti.UI.iOS.createToolbar({
-		items:[label,settings,questionCart,shoppingcart],
+		items:[settings,flexSpace,flexSpace,label,flexSpace,questionCart,shoppingcart],
 		top:0,
 		//left: '0%',
 		//right: '0%',
@@ -104,7 +107,7 @@ function MenuBarView() {
 		color: '#ffffff',
 		font: {
 			fontFamily: customFont,
-			fontSize: 15
+			fontSize: 10
 			}
 	});
 	//create producten label
@@ -113,26 +116,26 @@ function MenuBarView() {
 		color: '#505050',
 		font: {
 			fontFamily: customFont,
-			fontSize: 15},	
+			fontSize: 10},	
 	});
 	//create projecten label
 	var projecten = Ti.UI.createLabel({
 		text:'Projecten',
 		color: '#505050',
 		font: {
-			fontFamily: customFont, fontSize: '15'},
+			fontFamily: customFont, fontSize: '10'},
 	});
 	//create news label
 	var nieuws = Ti.UI.createLabel({
 		text:'Nieuws',
 		color: '#505050',
-		font: {fontFamily: customFont, fontSize: '15'},
+		font: {fontFamily: customFont, fontSize: '10'},
 	});
 	//create info label
 	var info = Ti.UI.createLabel({
 		text:'Info',
 		color: '#505050',
-		font: {fontFamily: customFont, fontSize: '15'},
+		font: {fontFamily: customFont, fontSize: '10'},
 	});
 	//create toolbar2
 	//button bar under
