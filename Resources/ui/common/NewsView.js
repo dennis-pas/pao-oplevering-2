@@ -19,28 +19,45 @@ function NewsView() {
 		customFont = 'Futura-Lt';
 	}
 	
+	var db = Ti.Database.open('SqlPaoApp');
+	var rows = db.execute('SELECT NID, Title, OverviewPicture, Description FROM News');
+	
+	/*while (rows.isValidRow())
+	{
+		rows.fieldByName('Title');
+	}*/
 	var arr =	[	
 				{ID: 1,imgurl: 'ui/common/img/Nieuws/49.jpg', text: 'Exclusieve samenwerking BAM'},
 				{ID: 2,imgurl: 'ui/common/img/Nieuws/50.jpg', text: 'ARK 14'},
 				{ID: 4,imgurl: 'ui/common/img/Nieuws/51.jpg', text: 'Orgatec'},
 				];
-				
+	
+		
 	var Producten = {};
 	
-	for(var i = 0; i < arr.length; ++i){
-		this.thisObject = arr[i];
+	//for(var i = 0; i < arr.length; ++i){
+	while (rows.isValidRow())
+	{
+//		this.thisObject = arr[i];
 		var newRow = Ti.UI.createTableViewRow({
-			backgroundImage: this.thisObject.imgurl,
+			//http://apishop.planatoffice.nl/Data/Nieuws/OverviewItems/22.jpg
+			//backgroundImage: "http://apishop.planatoffice.nl/" + rows.fieldByName('OverviewPicture'),
 			selectedBackgroundColor:'white',
 			borderColor: 'white',
 			height: 128,
 			width: 256
 		});
 		
+		var imageFullBack = Ti.UI.createImageView({
+			width: "100%",
+			height: "98%",
+			image: "http://apishop.planatoffice.nl/" + rows.fieldByName('OverviewPicture')
+		});
 		
-		newRow.cat = this.thisObject.catergorie;
 		
-		function ImgBalkImageView(thisObject){
+		//newRow.cat = this.thisObject.catergorie;
+		
+		function ImgBalkImageView(test){
 			
 			//create object instance, parasitic subclass of Observable
 			var self = Ti.UI.createImageView({
@@ -58,7 +75,7 @@ function NewsView() {
 				width: '90%',
 				color: 'white',
 				font: {fontSize: 12, fontFamily: customFont},
-				text: thisObject.text,
+				text: test,
 				
 				
 			});
@@ -71,21 +88,28 @@ function NewsView() {
 		
 		module.exports = ImgBalkImageView;
 		
-		var imgBalk = new ImgBalkImageView(this.thisObject);
+		var imgBalk = new ImgBalkImageView(rows.fieldByName('Title'));
 		
-		/*newRow.addEventListener('click', function(e){
-			var productsDataVar = require('ui/common/product/cat/'+ e.row.cat);
-			var productsData = new productsDataVar();
-			self.add(productsData);
+		
+		newRow.id = rows.fieldByName('NID');
+		
+		
+		newRow.addEventListener('click', function(e){			
+			var NewsDetailWindow = require("ui/common/News/NewsDetailWindow");
+			var id = e.row.id;
+			var newsDetailWindow = new NewsDetailWindow(id);
+			//self.add(productsData);
 			//self.setVisible(false);
-			//productsData.open();
+			newsDetailWindow.open();
 		});
-*/
-		
-		newRow.add(imgBalk),
+
+		newRow.add(imageFullBack);
+		imageFullBack.add(imgBalk),
 		tableData.push(newRow);
-		
+		rows.next();
 	}
+	db.close();	
+	//db.close();		
 	var productTableView = Ti.UI.createTableView({
 		data: tableData,
 		backgroundColor:'white',

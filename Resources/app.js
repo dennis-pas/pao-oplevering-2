@@ -48,8 +48,14 @@ if (Ti.version < 1.8) {
 	var dbVar = require('Data/CreateDataBase');
 	var db = new dbVar();
 	var productsDataVar = require('Data/Products');
+	var projectsDataVar = require('Data/Projects');
+	var projectsDataVar = new projectsDataVar();
+	var newsDataVar = require('Data/News');
 	var productsData = new productsDataVar();
+	var newsData = new newsDataVar();
+	projectsDataVar.importOverview();
 	productsData.importOverview();
+	newsData.importOverview();
    var Window;
    if (isTablet) {
      Window = require('ui/tablet/ApplicationWindow');

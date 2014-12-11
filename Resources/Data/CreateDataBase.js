@@ -21,6 +21,12 @@ function CreateDataBase() {
 		db.execute('CREATE TABLE SpecDetail (SDID  INTEGER NOT NULL PRIMARY KEY, Name integer(10) NOT NULL, PriceExtra integer(10) NOT NULL, SpecsSID integer(10) NOT NULL, SpecDetailSDID integer(10), FOREIGN KEY(SpecsSID) REFERENCES Spec(SID), FOREIGN KEY(SpecDetailSDID) REFERENCES SpecDetail(SDID));');
 		db.execute('CREATE TABLE Spec (SID  INTEGER NOT NULL PRIMARY KEY, Name varchar(255) NOT NULL, ProductPID integer(10) NOT NULL, FOREIGN KEY(ProductPID) REFERENCES Product(PID));');
 		db.execute('CREATE TABLE Product (PID  INTEGER NOT NULL PRIMARY KEY, Name varchar(255), Type varchar(255), BasicPrijs integer(10), Supplier varchar(255), BuyAble integer(1), Documents integer(10), ProductInformatie varchar(255), FotoGrid varchar(255));');
+		db.execute('CREATE TABLE News (NID INTEGER NOT NULL PRIMARY KEY,  Title varchar(255), OverviewPicture varchar(255), Description varchar(255));');
+		db.execute('CREATE TABLE NewsPictures (NPID  INTEGER NOT NULL PRIMARY KEY, NIDFK integer(10), PictureUrl varchar(255));');
+		db.execute('CREATE TABLE Project (PID INTEGER NOT NULL PRIMARY KEY,  Title varchar(255), OverviewPicture varchar(255), Description varchar(255));');
+		db.execute('CREATE TABLE ProjectPictures (PPID  INTEGER NOT NULL PRIMARY KEY, PIDFK integer(10), PictureUrl varchar(255));');
+		db.execute('CREATE TABLE VersieNews (ID INTEGER PRIMARY KEY, versie integer(10));');
+		db.execute('CREATE TABLE VersieProject (ID INTEGER PRIMARY KEY, versie integer(10));');
 		db.execute('CREATE TABLE VersieProduct (ID INTEGER PRIMARY KEY, versie integer(10));');
 		db.execute("INSERT INTO VersieProduct (ID, versie) VALUES (1, 1)");
 		db.execute('CREATE TABLE Meta (name VARCHAR PRIMARY KEY, value INTEGER);');
