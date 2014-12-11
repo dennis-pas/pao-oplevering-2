@@ -6,7 +6,6 @@ function ApplicationWindow() {
 
 	//construct UI
 	var menuBarView = new MenuBarView();
-	//var afrekenView = new AfrekenView();
 
 	//create Menubarview container
 	var menuBarContainerWindow = Ti.UI.createWindow({

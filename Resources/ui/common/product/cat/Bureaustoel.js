@@ -119,7 +119,7 @@ function Bureaustoel(){
 	var productTableView = Ti.UI.createTableView({
 		data: tableData,
 		backgroundColor:'white',
-		separatorColor:'white',
+		separatorColor:'E6E6E6',
 		top: 0,
 	});
 	

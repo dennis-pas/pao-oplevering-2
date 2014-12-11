@@ -23,7 +23,7 @@ function ProductsView(){
 
 	
 	var arr =	[	
-				{ID: 1,imgurl: 'http://apishop.planatoffice.nl/Data/Pictures/OverviewImages/49.jpg', text: 'Bureaustoel', catergorie: 'Bureaustoel'}
+				{ID: 1,imgurl: 'http://apishop.planatoffice.nl/Data/Pictures/OverviewImages/49.jpg', text: 'Bureaustoelen', catergorie: 'Bureaustoel'}
 				/*{ID: 2,imgurl: 'ui/common/img/product/James.jpg', text: 'Banken', catergorie: 'Banken' },
 				{ID: 3,imgurl: 'ui/common/img/product/James.jpg', text: 'Kasten', catergorie: 'Kasten' },
 				{ID: 4,imgurl: 'ui/common/img/product/James.jpg', text: 'School', catergorie: 'School' },
@@ -73,12 +73,7 @@ function ProductsView(){
 				
 			});
 			
-			var BuyableFlag = Ti.UI.createImageView({
-				image: 'ui/common/img/product/BuyableFlag.png',
-				height: '100%',
-				right: -61
-			});
-			self.add(BuyableFlag);
+		
 			self.add(text);
 				
 			return self;
@@ -103,7 +98,7 @@ function ProductsView(){
 	var productTableView = Ti.UI.createTableView({
 		data: tableData,
 		backgroundColor:'white',
-		separatorColor: 'white',
+		separatorColor: 'E6E6E6',
 		top: 0,
 		rowHeight:128
 	});

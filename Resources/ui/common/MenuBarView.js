@@ -61,11 +61,14 @@ function MenuBarView() {
 		height: 15,
 		right: '5%'
 	});
-	//create Label label
-	var label = Ti.UI.createLabel({
-		text:'PLAN@OFFICE',
-		color: '#ffffff',
-		font: {fontFamily: customFont, fontSize: '25'},
+	//create Logo imgview
+	var label = Ti.UI.createImageView({
+		backgroundImage:'ui/common/img/PAOLogo.png',
+		width: '120',
+		height: 15,
+		//width: '50%',
+		//height: 15,
+		center: 0
 	});
 	
 	//create QuestionCart img
@@ -83,7 +86,7 @@ function MenuBarView() {
 	//create toolbar
 	//button bar top
 	var toolBar = Ti.UI.iOS.createToolbar({
-		items:[settings,flexSpace,flexSpace,label,flexSpace,questionCart,shoppingcart],
+		items:[settings,flexSpace,flexSpace,label,flexSpace,flexSpace,questionCart,shoppingcart],
 		top:0,
 		//left: '0%',
 		//right: '0%',
@@ -97,8 +100,7 @@ function MenuBarView() {
 	
 	
 	//settings for position
-	var theTop = 0;
-	var theTopToolbar2 = 42;
+	var theTopToolbar2 = '10%';
 	
 	
 	//creating second bar
@@ -107,7 +109,7 @@ function MenuBarView() {
 		color: '#ffffff',
 		font: {
 			fontFamily: customFont,
-			fontSize: 10
+			fontSize: '10'
 			}
 	});
 	//create producten label
@@ -116,7 +118,7 @@ function MenuBarView() {
 		color: '#505050',
 		font: {
 			fontFamily: customFont,
-			fontSize: 10},	
+			fontSize: '10'},	
 	});
 	//create projecten label
 	var projecten = Ti.UI.createLabel({
@@ -140,13 +142,15 @@ function MenuBarView() {
 	//create toolbar2
 	//button bar under
 	var toolBar2 = Ti.UI.iOS.createToolbar({
-		items:[home,producten,projecten,nieuws,info,],
-		top:theTopToolbar2,
+		items:[home,flexSpace,producten,flexSpace,projecten,flexSpace,nieuws,flexSpace,info,],
+		top: '10%',//theTopToolbar2,
+		bottom: '90%',
 		left: '0%',
 		right: '0%',
 		bordertop:false,
 		borderBottom:true,
 		barColor: 'Black',
+		height: 10
 	});
 	//eventlisteners for the labels
 	//for Label - goes to home
@@ -286,8 +290,9 @@ function MenuBarView() {
 	self.add(newsView); 
 	self.add(projectsView);
 	self.add(homeView);
-	self.add(toolBar);
+	
 	self.add(toolBar2);
+	self.add(toolBar);
 	
 	return self;
 };
