@@ -21,13 +21,15 @@ function ProductsView(){
 	//var ProductTableView = require('ui/common/product/ProductTableView');
 	
 
-	
+	//'http://apishop.planatoffice.nl/Data/Pictures/OverviewImages/49.jpg'
 	var arr =	[	
-				{ID: 1,imgurl: 'http://apishop.planatoffice.nl/Data/Pictures/OverviewImages/49.jpg', text: 'Bureaustoelen', catergorie: 'Bureaustoel'}
-				/*{ID: 2,imgurl: 'ui/common/img/product/James.jpg', text: 'Banken', catergorie: 'Banken' },
-				{ID: 3,imgurl: 'ui/common/img/product/James.jpg', text: 'Kasten', catergorie: 'Kasten' },
-				{ID: 4,imgurl: 'ui/common/img/product/James.jpg', text: 'School', catergorie: 'School' },
-				{ID: 5,imgurl: 'ui/common/img/product/James.jpg', text: 'Overig', catergorie: 'Overig'},*/
+				{ID: 1,imgurl: 'ui/common/img/product/overview/bureau_stoelen_eerste_sfeer.png.png', text: 'Bureaustoelen', catergorie: 'Bureaustoel'},
+				{ID: 2,imgurl: 'ui/common/img/product/overview/stoelen.png', text: 'Stoelen', catergorie: 'Stoelen'},
+				{ID: 3,imgurl: 'ui/common/img/product/overview/bureaus.png', text: 'Bureaus', catergorie: 'Bureaus' },
+				{ID: 4,imgurl: 'ui/common/img/product/overview/school.png', text: 'School', catergorie: 'School' },
+				{ID: 5,imgurl: 'ui/common/img/product/overview/styling.png', text: 'Styling', catergorie: 'Styling' },
+				{ID: 6,imgurl: 'ui/common/img/product/overview/welfare.png', text: 'Welfare', catergorie: 'Welfare'},
+				{ID: 7,imgurl: 'ui/common/img/product/overview/privacy_solutions.png', text: 'Privacy', catergorie: 'Privacy'},
 				];
 				
 	var Producten = {};
@@ -44,9 +46,10 @@ function ProductsView(){
 		
 		var fullImageBackGround = Ti.UI.createImageView({
   			image: this.thisObject.imgurl,
-  			height: '100%' ,
-  			//width: '100%',
+  			height: '100%',
+  			width: '100%',
 			left: 0,
+			right: 0,
 			top: 0
 		});	
 		
@@ -83,11 +86,13 @@ function ProductsView(){
 		var imgBalk = new ImgBalkImageView(this.thisObject);
 		
 		newRow.addEventListener('click', function(e){
+			if(e.row.cat == 'Bureaustoel'){// deze regel verwijderen zodra andere views gemaakt zijn voor de andere catergorien
 			var productsDataVar = require('ui/common/product/cat/'+ e.row.cat);
 			var productsData = new productsDataVar();
 			self.add(productsData);
 			//self.setVisible(false);
 			//productsData.open();
+			}
 		});
 
 		

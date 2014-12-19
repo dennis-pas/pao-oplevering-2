@@ -22,7 +22,7 @@ function ProductImageViewerView(){
 		image: imgToView.url
 	});
 	
-	var button3D = Ti.UI.createButton({
+	/*var button3D = Ti.UI.createButton({
 		backgroundColor: 'black',
 		title: '3D',
 		top: '15%',
@@ -41,7 +41,7 @@ function ProductImageViewerView(){
 		
 	Ti.API.addEventListener('infoBarSLIDEDOWN', function(e){
 		button3D.setVisible(true);
-	});	
+	});	*/
 	
 	self.addEventListener('swipe', function(e){
 		if(e.direction == 'left')

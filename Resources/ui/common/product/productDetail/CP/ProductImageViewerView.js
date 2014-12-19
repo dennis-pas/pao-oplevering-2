@@ -23,7 +23,7 @@ function ProductImageViewerView(){
 		image: imgToView.url
 	});
 	
-	var button3D = Ti.UI.createButton({
+	/*var button3D = Ti.UI.createButton({
 		backgroundColor: 'black',
 		title: '3D',
 		top: '15%',
@@ -35,13 +35,13 @@ function ProductImageViewerView(){
 			var Window3D = new _3DWindow();
 			Window3D.open();
 		});
-		
+		*/
 	Ti.API.addEventListener('infoBarSLIDEUP', function(e){
-		button3D.setVisible(false);
+		//button3D.setVisible(false);
 	});
 		
 	Ti.API.addEventListener('infoBarSLIDEDOWN', function(e){
-		button3D.setVisible(true);
+		//button3D.setVisible(true);
 	});	
 	
 	self.addEventListener('swipe', function(e){

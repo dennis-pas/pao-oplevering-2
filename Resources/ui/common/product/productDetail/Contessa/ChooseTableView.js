@@ -28,7 +28,7 @@ function ChooseTableView(){
 			]},
 	];
 	var self = Ti.UI.createTableView({
-		top: "10%"
+		top: "20%"
 	});
 	
 	function leesArray(treearray){

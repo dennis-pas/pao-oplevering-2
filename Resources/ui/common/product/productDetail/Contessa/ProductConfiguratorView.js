@@ -30,54 +30,72 @@ function ProductConfiguratorView(Product){
 
 	var self = Ti.UI.createView({
 		height: '100%',
-		top: '90%',
+		top: '80%',
 		backgroundColor: 'white',
 		visible: false,
 		opacity: 0.8
 	});
 	
+	//settings for font
+	var customFont = 'Futura Lt';
+	if(Ti.Platform.osname=='android'){
+		customFont = 'Futura-Lt';
+	}
+	
 	var ChooseTableView = require('ui/common/product/productDetail/Contessa/ChooseTableView');
 	var chooseTableView = new ChooseTableView();
 	self.add(chooseTableView);
 	
-	
-	
-	//!!!!!!!!!!!!!!!!!!!!!!!!! slidebar !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	var slideBarCon = Ti.UI.createView({
-		height: '10%',
+	//slider setup
+	var slideBarCon = Ti.UI.createImageView({
+		backgroundImage: 'ui/common/img/product/bureaustoel/SliderUpImgReduced.png',
+		width: '100%',
+		//left: '0%',
+		//right: '0%',
 		top: '0%',
-		bottom: '90%',
-		backgroundColor: 'gray',
-		borderColor: 'black'
+		bottom: '80%',
+		//opacity: 1,
+		borderColor: 'black',
+		
 	});
 	
-	var status = 'down';
 	var SliderText = Ti.UI.createLabel({
 		text: 'swipe omhoog',
-	});
+		top: '5%',
+		color: 'white',
+		font: {
+			fontFamily: customFont,
+			fontSize: '15',
+			}
+		});
 	
-	slideBarCon.add(SliderText);
+	//slideBarCon.add(SliderText);
 	self.add(slideBarCon);
-
+	
+	//listeners --------------------------------------------------------------------
+	Ti.API.addEventListener('configBarSLIDEUP', function(e){
+		self.setTop('0%');
+		slideBarCon.setBackgroundImage('ui/common/img/product/bureaustoel/SliderDownImgReduced.png');
+		slideBarCon.setBottom('90%');
+		SliderText.setTop('45%');
+	});
+		
+	Ti.API.addEventListener('configBarSLIDEDOWN', function(e){
+		self.setTop('80%');
+		slideBarCon.setBackgroundImage('ui/common/img/product/bureaustoel/SliderUpImgReduced.png');
+		slideBarCon.setBottom('80%');
+		SliderText.setTop('5%');
+	});	
 	
 	Ti.API.addEventListener('infoBarSLIDEUP', function(e){
 		self.setVisible(true);
 	});
-		
+	
 	Ti.API.addEventListener('infoBarSLIDEDOWN', function(e){
 		self.setVisible(false);
-	});	
-	
-	Ti.API.addEventListener('configBarSLIDEUP', function(e){
-		self.setTop('0%');
 	});
 	
-	Ti.API.addEventListener('configBarSLIDEDOWN', function(e){
-		self.setTop('90%');
-	});
-	
-	
-	slideBarCon.addEventListener('swipe', function(e){
+		slideBarCon.addEventListener('swipe', function(e){
 		if(e.direction == 'up')
 		{
 			Ti.API.fireEvent('configBarSLIDEUP');
@@ -90,7 +108,6 @@ function ProductConfiguratorView(Product){
 		}
 		Ti.API.log('eerste view');
 	});
-	
 	return self;
 	
 }

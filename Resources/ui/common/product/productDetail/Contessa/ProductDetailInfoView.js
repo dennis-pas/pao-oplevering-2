@@ -4,43 +4,52 @@
 
 function ProductDetailInfoView(){
 	
-	var DocumentView = require('ui/common/product/productDetail/DocumentView');
+	/*var DocumentView = require('ui/common/product/productDetail/DocumentView');
 	
 	var documentView = new DocumentView();
-	
+	*/
+	// create constructor
 	var self = Ti.UI.createView({
 		height: '100%',
-		top: '90%',
+		top: '80%',
 		backgroundColor: 'white',
 		opacity: 0.8
 	});
 	
-	self.add(documentView);
+	//settings for font
+	var customFont = 'Futura Lt';
+	if(Ti.Platform.osname=='android'){
+		customFont = 'Futura-Lt';
+	}
+	
+	//self.add(documentView);
+	function ProductDetailDocumentContentView(){
+		
+		var selfContent = Ti.UI.createView({
+			height: '80%',
+			top: '20%',
+		});
+		
+	// create tekst
 	var test = Ti.UI.createLabel({
 		text: 'Okamura Contessa van PLAN@OFFICE ontworpen door Okamura.',
-		top: 50,
+		top: '0%',
 		left: 10,
 		right: 10,
 		font: { fontSize:10 }
 	});
 	
+	//create text
 	var documentatieText = Ti.UI.createLabel({
 		text: 'Brochure',
-		top: 150,
+		top: '50%',
 		left: 10,
 		right: 10,
 		font: { fontSize:10 }
 	});
 	
+	// add 
 	documentatieText.addEventListener('click', function() {
-			var b = Titanium.UI.createButton({
-				title: 'Close',
-				width: 50,
-				height: 40,
-				top: 10,
-				right: 0
-			});
-		
 		
 			var w = Titanium.UI.createWindow({
 			  exitOnClose: true,
@@ -56,31 +65,59 @@ function ProductDetailInfoView(){
 			});
 			w.open({ modal: true });
 		});
-	
-	var slideBar = Ti.UI.createView({
-		height: '10%',
+		
+		selfContent.add(test);
+		selfContent.add(documentatieText);
+		
+		Ti.API.addEventListener('infoBarSLIDEUP', function(e){
+			selfContent.setTop('10%');
+		});
+		
+		Ti.API.addEventListener('infoBarSLIDEDOWN', function(e){
+			selfContent.setTop('20%');
+		});
+	}
+	//slider setup
+	var slideBar = Ti.UI.createImageView({
+		backgroundImage: 'ui/common/img/product/bureaustoel/SliderUpImgReduced.png',
+		width: '100%',
+		//left: '0%',
+		//right: '0%',
 		top: '0%',
-		bottom: '90%',
-		backgroundColor: 'gray',
-		opacity: 1,
-		borderColor: 'black'
+		bottom: '80%',
+		//opacity: 1,
+		borderColor: 'black',
+		
 	});
 	
 	var SliderText = Ti.UI.createLabel({
 		text: 'swipe omhoog',
-	});
+		top: '5%',
+		color: 'white',
+		font: {
+			fontFamily: customFont,
+			fontSize: '15',
+			}
+		});
 	
-	self.add(documentatieText);
-	self.add(test);
-	slideBar.add(SliderText);
+	//self.add(documentatieText);
+	//self.add(test);
+	//slideBar.add(SliderText);
 	self.add(slideBar);
 	
+	//listeners --------------------------------------------------------------------
 	Ti.API.addEventListener('infoBarSLIDEUP', function(e){
 		self.setTop('0%');
+		slideBar.setBackgroundImage('ui/common/img/product/bureaustoel/SliderDownImgReduced.png');
+		slideBar.setBottom('90%');
+		SliderText.setTop('45%');
 	});
 		
 	Ti.API.addEventListener('infoBarSLIDEDOWN', function(e){
-		self.setTop('90%');
+		self.setTop('80%');
+		slideBar.setBackgroundImage('ui/common/img/product/bureaustoel/SliderUpImgReduced.png');
+		slideBar.setBottom('80%');
+		SliderText.setTop('5%');
 	});	
 	
 	Ti.API.addEventListener('configBarSLIDEUP', function(e){
