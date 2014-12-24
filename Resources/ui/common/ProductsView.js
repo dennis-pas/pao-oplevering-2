@@ -40,6 +40,7 @@ function ProductsView(){
 		//	backgroundImage: this.thisObject.imgurl,
 			selectedBackgroundColor:'white',
 			borderColor: 'white',
+			borderWidth: 2,
 			height: 128,
 			width: 256
 		});
