@@ -8,7 +8,7 @@ function SettingsWindow() {
 //create object instance, parasitic subclass of Observable
 	var self = Ti.UI.createWindow({
 		backgroundColor:'white',
-		top: 88
+		top: 70
 	});
 	
 	var customFont = 'Futura Lt';

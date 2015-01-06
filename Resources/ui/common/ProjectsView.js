@@ -8,7 +8,7 @@ function ProjectsView(){
 	
 	var self = Ti.UI.createView({
 		backgroundColor:'white',
-		top: 88
+		top: 70
 	});
 	
 	

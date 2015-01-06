@@ -8,7 +8,7 @@ function InfoView() {
 ///create object instance, parasitic subclass of Observable
 	var self = Ti.UI.createView({
 		backgroundColor:'white',
-		top: 86
+		top: 70
 	});
 	this.view1 = Ti.UI.createView({
 			

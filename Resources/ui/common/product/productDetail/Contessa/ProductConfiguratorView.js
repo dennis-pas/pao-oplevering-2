@@ -30,7 +30,7 @@ function ProductConfiguratorView(Product){
 
 	var self = Ti.UI.createView({
 		height: '100%',
-		top: '80%',
+		top: '93%',
 		backgroundColor: 'white',
 		visible: false,
 		opacity: 0.8
@@ -81,7 +81,7 @@ function ProductConfiguratorView(Product){
 	});
 		
 	Ti.API.addEventListener('configBarSLIDEDOWN', function(e){
-		self.setTop('80%');
+		self.setTop('93%');
 		slideBarCon.setBackgroundImage('ui/common/img/product/bureaustoel/SliderUpImgReduced.png');
 		slideBarCon.setBottom('80%');
 		SliderText.setTop('5%');
@@ -95,7 +95,7 @@ function ProductConfiguratorView(Product){
 		self.setVisible(false);
 	});
 	
-		slideBarCon.addEventListener('swipe', function(e){
+	slideBarCon.addEventListener('swipe', function(e){
 		if(e.direction == 'up')
 		{
 			Ti.API.fireEvent('configBarSLIDEUP');

@@ -1,5 +1,6 @@
 	/**
  * @author sjoerdsprangers
+ * 
  */
 
 function Bureaustoel(){

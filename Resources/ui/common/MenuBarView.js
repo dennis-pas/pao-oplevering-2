@@ -143,8 +143,8 @@ function MenuBarView() {
 	//button bar under
 	var toolBar2 = Ti.UI.iOS.createToolbar({
 		items:[home,flexSpace,producten,flexSpace,projecten,flexSpace,nieuws,flexSpace,info,],
-		top: '10%',//theTopToolbar2,
-		bottom: '90%',
+		top: '60px',//theTopToolbar2,
+		//bottom: '90%',
 		left: '0%',
 		right: '0%',
 		bordertop:false,

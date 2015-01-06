@@ -18,9 +18,10 @@ function ProductImageViewerView(){
 	var self = Ti.UI.createImageView({
 		top: '0%',		
 		bottom: '10%',
-		width: '100%',
-		height: '100%',
-		image: imgToView.url
+		width: 'auto',
+		height: '110%',
+		image: imgToView.url,
+		
 	});
 	/*
 	var button3D = Ti.UI.createButton({

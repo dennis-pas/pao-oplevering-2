@@ -51,7 +51,7 @@ function ProductDetailView(){
 	
 	Ti.API.addEventListener('closeOptionView', function(e){
 		self.setTop('10%');
-		});
+	});
 	
 	Ti.API.addEventListener('openOptionView', function(e){
 		self.setTop('0%');

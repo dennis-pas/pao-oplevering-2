@@ -8,7 +8,7 @@ function ProductsView(){
 	//create object instance, parasitic subclass of Observable
 	var self = Ti.UI.createView({
 		backgroundColor:'white',
-		top: 88
+		top: 70
 	});
 	
 	var customFont = 'Futura Lt';

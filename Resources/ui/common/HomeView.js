@@ -8,7 +8,7 @@ function HomeView() {
 //create object instance, parasitic subclass of Observable
 	var self = Ti.UI.createView({
 		backgroundColor:'white',
-		top: 88
+		top: 70
 	});
 	
 	var webview = Titanium.UI.createWebView({url:'https://www.youtube.com/watch?v=lN09Z-6_Um4'});

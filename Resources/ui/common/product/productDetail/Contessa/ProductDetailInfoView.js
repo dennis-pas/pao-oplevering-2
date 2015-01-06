@@ -11,7 +11,7 @@ function ProductDetailInfoView(){
 	// create constructor
 	var self = Ti.UI.createView({
 		height: '100%',
-		top: '80%',
+		top: '93%',
 		backgroundColor: 'white',
 		opacity: 0.8
 	});
@@ -26,7 +26,7 @@ function ProductDetailInfoView(){
 	function ProductDetailDocumentContentView(){
 		
 		var selfContent = Ti.UI.createView({
-			height: '80%',
+			height: '98%',
 			top: '20%',
 		});
 		
@@ -114,7 +114,7 @@ function ProductDetailInfoView(){
 	});
 		
 	Ti.API.addEventListener('infoBarSLIDEDOWN', function(e){
-		self.setTop('80%');
+		self.setTop('93%');
 		slideBar.setBackgroundImage('ui/common/img/product/bureaustoel/SliderUpImgReduced.png');
 		slideBar.setBottom('80%');
 		SliderText.setTop('5%');
