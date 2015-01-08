@@ -11,7 +11,10 @@ function HomeView() {
 		top: 70
 	});
 	
-	var webview = Titanium.UI.createWebView({url:'https://www.youtube.com/watch?v=lN09Z-6_Um4'});
+	var webview = Titanium.UI.createWebView({
+		width: '100%',
+		url:'http://apishop.planatoffice.nl/filmpje.html'
+		});
 	
 	/*var win = Titanium.UI.currentWindow;
     var contentURL = 'http://movies.apple.com/media/us/ipad/2010/tours/apple-ipad-video-us-20100127_r848-9cie.mov';

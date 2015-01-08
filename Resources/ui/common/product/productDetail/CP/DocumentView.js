@@ -12,6 +12,15 @@ function DocumentView(){
 		opacity: 1,
 	});
 	
+	var img = Ti.UI.createImageView({
+		image: 'ui/common/img/documentView.png',
+		height: '100%',
+		top: '0%',
+		width: '100%',
+		opacity: 2
+	});
+	
+	self.add(img);
 	
 	
 	return self;

@@ -17,12 +17,17 @@ function ProductDetailMenuView(){
 	if(Ti.Platform.osname=='android'){
 		customFont = 'Futura-Lt';
 	}
-	
+	var acnhor = {n:0, n2: 0};
 		//create Label label
 	var label = Ti.UI.createImageView({
-		backgroundImage:'ui/common/img/PAOLogo.png',
-		top: '0%',
-		left: '30%'
+		//backgroundColor: 'yellow',
+		image:'ui/common/img/PAOLogo.png',
+		//top: '0%',
+		//height: '100%',
+		//anchorPoint: acnhor,
+		top: '20%',
+		width: '50%',
+		//center: 0
 	});
 	
 	//create 3D button
@@ -30,13 +35,14 @@ function ProductDetailMenuView(){
 	var _3DButton = Ti.UI.createImageView({
 		image: 'ui/common/img/3d/3DKnop.png',
 		height: 30,
-		right: '5%'
+		right: '5%',
+		center: 0
 	});
 	
 	var backButton = Ti.UI.createImageView({
 		image: 'ui/common/img/backButton.png',
 		height: 30,
-		
+		center: 0,
 		left: '5%'
 		
 	});

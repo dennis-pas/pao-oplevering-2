@@ -8,7 +8,8 @@ function ProductDetailInfoView(){
 	var self = Ti.UI.createView({
 		height: '100%',
 		top: '90%',
-		backgroundColor: 'white',
+		//backgroundColor: 'white',
+		//backgroundColor: 'rgba(255,255,255,0.8)',
 		opacity: 0.8
 	});
 	
@@ -20,7 +21,7 @@ function ProductDetailInfoView(){
 	
 	function ProductDetailDocumentContentView(){
 		
-		var DocumentView = require('ui/common/product/productDetail/DocumentView');
+		var DocumentView = require('ui/common/product/productDetail/CP/DocumentView');
 	
 		var documentView = new DocumentView();
 		
@@ -29,7 +30,7 @@ function ProductDetailInfoView(){
 			top: '10%',
 			backgroundColor: 'white',
 			visible: false,
-			
+			opacity: 1
 		});
 		
 	
@@ -58,7 +59,7 @@ function ProductDetailInfoView(){
 		width: '100%',
 		top: '0%',
 		bottom: '80%',
-		
+		opacity: 0.8
 	});
 	
 	self.add(slideBar);
@@ -71,7 +72,7 @@ function ProductDetailInfoView(){
 	});
 		
 	Ti.API.addEventListener('infoBarSLIDEDOWN', function(e){
-		self.setTop('80%');
+		self.setTop('90%');
 		slideBar.setBackgroundImage('ui/common/img/product/bureaustoel/SliderUpImgReduced.png');
 		slideBar.setBottom('80%');
 	});	
